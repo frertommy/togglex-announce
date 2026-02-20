@@ -70,12 +70,10 @@ z-index:5;
 @keyframes fadeUp{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
 @keyframes slamIn{0%{opacity:0;transform:translateY(80px) scale(1.05);filter:blur(8px)}100%{opacity:1;transform:translateY(0) scale(1);filter:blur(0)}}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
-@keyframes glitchFlash{0%{opacity:0}30%{opacity:.9}50%{opacity:0}65%{opacity:.3}100%{opacity:0}}
-@keyframes sceneOut{to{opacity:0}}
-@keyframes sceneIn{to{opacity:1}}
-.flash{position:absolute;inset:0;background:var(--mint);z-index:50;opacity:0;mix-blend-mode:screen}
+@keyframes sceneOut{to{opacity:0;filter:blur(2px)}}
+@keyframes sceneIn{from{opacity:0;filter:blur(2px)}to{opacity:1;filter:blur(0)}}
 /* S1: HOOK */
-.s1{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:10;animation:sceneOut .12s 2.5s ease-in forwards}
+.s1{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:10;animation:sceneOut .3s 2.5s ease-in forwards}
 .s1-pre{font-family:'Space Mono',monospace;font-size:13px;letter-spacing:.25em;text-transform:uppercase;color:var(--mint);opacity:0;animation:fadeUp .5s .3s ease-out forwards;margin-bottom:28px;padding:6px 16px;border:1px solid rgba(0,255,178,.2);border-radius:4px}
 .s1-main{font-size:72px;font-weight:800;letter-spacing:-.045em;line-height:1.05;text-align:center;max-width:900px}
 .s1-line{display:block;opacity:0}
@@ -84,9 +82,8 @@ z-index:5;
 .s1-em{color:var(--red);position:relative}
 .s1-em::after{content:'';position:absolute;bottom:2px;left:-4px;right:-4px;height:5px;background:var(--red);opacity:0;animation:ulIn .3s 1.3s ease-out forwards}
 @keyframes ulIn{0%{opacity:0;transform:scaleX(0);transform-origin:left}100%{opacity:.6;transform:scaleX(1)}}
-.f1{animation:glitchFlash .2s 2.45s ease-out forwards}
 /* S2: BROWSER */
-.s2{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:10;opacity:0;animation:sceneIn .25s 2.6s ease-out forwards,sceneOut .12s 5.8s ease-in forwards}
+.s2{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:10;opacity:0;animation:sceneIn .35s 2.6s ease-out forwards,sceneOut .3s 5.8s ease-in forwards}
 .browser{width:720px;background:var(--surface);border:1px solid var(--border);border-radius:12px;overflow:hidden;opacity:0;transform:translateY(30px) scale(.96);animation:browserIn .5s 2.7s cubic-bezier(.16,1,.3,1) forwards}
 @keyframes browserIn{to{opacity:1;transform:translateY(0) scale(1)}}
 .bbar{display:flex;align-items:center;gap:10px;padding:12px 16px;background:var(--surface-2);border-bottom:1px solid var(--border)}
@@ -113,7 +110,7 @@ z-index:5;
 .tbadge{position:absolute;top:14px;right:16px;display:flex;align-items:center;gap:6px;background:rgba(0,255,178,.1);border:1px solid rgba(0,255,178,.25);border-radius:6px;padding:5px 10px;font-family:'Space Mono',monospace;font-size:9px;color:var(--mint);letter-spacing:.06em;opacity:0;animation:badgeIn .3s 3.8s cubic-bezier(.16,1,.3,1) forwards}
 @keyframes badgeIn{0%{opacity:0;transform:scale(.8)}100%{opacity:1;transform:scale(1)}}
 .tbadge-dot{width:5px;height:5px;border-radius:50%;background:var(--mint);animation:pulse 1.2s ease-in-out infinite}
-.cpops{position:absolute;right:-20px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:8px}
+.cpops{position:absolute;right:-200px;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:8px}
 .cpop{display:flex;align-items:center;gap:8px;background:var(--surface);border:1px solid rgba(0,255,178,.15);border-radius:8px;padding:8px 14px;font-size:11px;white-space:nowrap;opacity:0;transform:translateX(-10px);box-shadow:0 0 20px rgba(0,255,178,.05)}
 .cpop:nth-child(1){animation:popO .3s 3.9s cubic-bezier(.16,1,.3,1) forwards}
 .cpop:nth-child(2){animation:popO .3s 4.1s cubic-bezier(.16,1,.3,1) forwards}
@@ -125,9 +122,8 @@ z-index:5;
 .pt-s{background:rgba(0,255,178,.08);color:var(--mint)}.pt-d{background:rgba(255,170,0,.1);color:var(--amber)}.pt-i{background:rgba(100,140,255,.08);color:var(--blue)}
 .s2-tag{margin-top:40px;font-size:48px;font-weight:800;letter-spacing:-.04em;text-align:center;opacity:0;animation:slamIn .4s 4.4s cubic-bezier(.16,1,.3,1) forwards}
 .s2-tag em{font-style:normal;color:var(--mint)}
-.f2{animation:glitchFlash .2s 5.75s ease-out forwards}
 /* S3: FLOW */
-.s3{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:10;opacity:0;animation:sceneIn .25s 5.85s ease-out forwards,sceneOut .12s 10.8s ease-in forwards}
+.s3{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:10;opacity:0;animation:sceneIn .35s 5.85s ease-out forwards,sceneOut .3s 10.8s ease-in forwards}
 .fv{position:relative;width:1000px;height:420px}
 .bnodes{display:flex;flex-direction:column;gap:12px;position:absolute;left:30px;top:50%;transform:translateY(-50%)}
 .bn-header{display:flex;align-items:center;gap:14px;background:var(--surface);border:1px solid rgba(0,255,178,.2);border-radius:10px;padding:14px 22px;width:940px;margin-bottom:6px;opacity:0;transform:translateX(-30px);animation:ni .4s 5.95s cubic-bezier(.16,1,.3,1) forwards}
@@ -167,9 +163,8 @@ z-index:5;
 .cl{margin-top:18px;text-align:center}.cl-n{font-size:18px;font-weight:700}.cl-s{font-family:'Space Mono',monospace;font-size:10px;color:var(--mint);letter-spacing:.08em;text-transform:uppercase;margin-top:4px;opacity:0;animation:fadeUp .3s 8s ease-out forwards}
 .s3-tag{margin-top:16px;font-size:26px;font-weight:700;letter-spacing:-.03em;text-align:center;opacity:0;animation:fadeUp .5s 8.3s ease-out forwards}
 .s3-tag em{font-style:normal;color:var(--mint)}
-.f3{animation:glitchFlash .2s 10.75s ease-out forwards}
 /* S4: WIN 1 */
-.s4{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:10;opacity:0;animation:sceneIn .25s 10.85s ease-out forwards,sceneOut .12s 16s ease-in forwards}
+.s4{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:10;opacity:0;animation:sceneIn .35s 10.85s ease-out forwards,sceneOut .3s 16s ease-in forwards}
 .with-card{width:640px;background:var(--surface-2);border-left:3px solid var(--mint);border-radius:12px;overflow:hidden;padding:32px 36px;opacity:0;animation:fadeUp .4s 11.2s ease-out forwards}
 .with-label{font-family:'Space Mono',monospace;font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--mint);margin-bottom:14px;display:flex;align-items:center;gap:6px}
 .with-dot{width:6px;height:6px;border-radius:50%;background:var(--mint)}
@@ -179,9 +174,8 @@ z-index:5;
 .with-resp strong{color:var(--mint);font-weight:600}
 .s4-punchline{margin-top:28px;font-size:22px;font-weight:700;letter-spacing:-.02em;opacity:0;animation:fadeUp .4s 12.8s ease-out forwards}
 .s4-punchline em{font-style:normal;color:var(--mint)}
-.f4{animation:glitchFlash .2s 15.95s ease-out forwards}
 /* S5: WIN 2 */
-.s5{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:10;opacity:0;animation:sceneIn .25s 16.05s ease-out forwards,sceneOut .12s 21s ease-in forwards}
+.s5{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:10;opacity:0;animation:sceneIn .35s 16.05s ease-out forwards,sceneOut .3s 21s ease-in forwards}
 .s5-badge{display:flex;align-items:center;gap:8px;font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);margin-bottom:24px;opacity:0;animation:fadeUp .3s 16.15s ease-out forwards}
 .s5-badge-dot{width:6px;height:6px;border-radius:50%;background:var(--amber);animation:pulse 1.5s ease-in-out infinite}
 .dm-card{width:640px;background:var(--surface);border:1px solid var(--border);border-radius:12px;overflow:hidden}
@@ -189,15 +183,15 @@ z-index:5;
 .dm-avatar{width:32px;height:32px;border-radius:8px;background:#fff;display:flex;align-items:center;justify-content:center}
 .dm-name{font-size:14px;font-weight:600}.dm-bot{font-family:'Space Mono',monospace;font-size:9px;background:rgba(0,255,178,.15);color:var(--mint);padding:2px 6px;border-radius:3px}
 .dm-time{margin-left:auto;font-family:'Space Mono',monospace;font-size:10px;color:var(--text-3)}
+.dm-body{padding:20px 24px}
 .dm-hl{color:var(--mint);font-weight:600}.dm-bold{color:var(--text);font-weight:600}
 .s5-card{opacity:0;transform:translateY(20px);animation:fadeUp .5s 16.35s ease-out forwards}
 .s5-line{font-size:13px;line-height:1.7;color:var(--text-2);opacity:0}
 .s5-line:nth-child(1){animation:fadeUp .35s 16.85s ease-out forwards}
 .s5-line:nth-child(2){animation:fadeUp .35s 17.35s ease-out forwards;margin-top:10px}
 .s5-line:nth-child(3){animation:fadeUp .35s 17.85s ease-out forwards;margin-top:14px;font-size:14px;color:var(--text)}
-.f5{animation:glitchFlash .2s 20.95s ease-out forwards}
 /* S6: WIN 3 */
-.s6{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:10;opacity:0;animation:sceneIn .25s 21.05s ease-out forwards,sceneOut .12s 26s ease-in forwards}
+.s6{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:10;opacity:0;animation:sceneIn .35s 21.05s ease-out forwards,sceneOut .3s 26s ease-in forwards}
 .s6-badge{display:flex;align-items:center;gap:8px;font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--red);margin-bottom:24px;opacity:0;animation:fadeUp .3s 21.15s ease-out forwards}
 .s6-badge-dot{width:6px;height:6px;border-radius:50%;background:var(--red);animation:pulse 1s ease-in-out infinite}
 .alert-card{width:640px;background:var(--surface);border:1px solid rgba(255,68,68,.2);border-radius:12px;overflow:hidden;opacity:0;transform:translateY(20px);animation:fadeUp .5s 21.35s ease-out forwards}
@@ -213,9 +207,8 @@ z-index:5;
 .focus-fill{height:100%;width:18%;background:var(--red);border-radius:3px;animation:focusDrop .6s 22.55s ease-out forwards}
 @keyframes focusDrop{0%{width:68%}100%{width:18%}}
 .focus-val{font-family:'Space Mono',monospace;font-size:12px;color:var(--red);font-weight:700}
-.f6{animation:glitchFlash .2s 25.95s ease-out forwards}
 /* S7: WIN 4 */
-.s7{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:10;opacity:0;animation:sceneIn .25s 26.05s ease-out forwards,sceneOut .12s 31s ease-in forwards}
+.s7{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:10;opacity:0;animation:sceneIn .35s 26.05s ease-out forwards,sceneOut .3s 31s ease-in forwards}
 .s7-badge{display:flex;align-items:center;gap:8px;font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);margin-bottom:24px;opacity:0;animation:fadeUp .3s 26.15s ease-out forwards}
 .s7-badge-dot{width:6px;height:6px;border-radius:50%;background:var(--amber);animation:pulse 1.5s ease-in-out infinite}
 .digest-card{width:640px;background:var(--surface);border:1px solid var(--border);border-radius:12px;overflow:hidden;opacity:0;transform:translateY(20px);animation:fadeUp .5s 26.35s ease-out forwards}
@@ -229,15 +222,14 @@ z-index:5;
 .digest-stats{display:flex;gap:12px;margin-top:16px;opacity:0;animation:fadeUp .3s 28.85s ease-out forwards}
 .digest-stat{background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:8px 14px;font-family:'Space Mono',monospace;font-size:11px;color:var(--text-2)}
 .digest-stat strong{color:var(--text);font-weight:700}
-.f7{animation:glitchFlash .2s 30.95s ease-out forwards}
 /* S8: CLOSE */
-.s8{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:10;opacity:0;animation:sceneIn .3s 31.05s ease-out forwards}
+.s8{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:10;opacity:0;animation:sceneIn .35s 31.05s ease-out forwards}
 .s8-logo{display:flex;align-items:center;gap:16px;margin-bottom:48px;opacity:0;animation:fadeUp .4s 31.15s ease-out forwards}
 .s8-icon{width:52px;height:52px;background:#fff;border-radius:11px;display:flex;align-items:center;justify-content:center}
 .s8-lt{font-family:'Space Mono',monospace;font-size:22px;font-weight:700;letter-spacing:.06em}.s8-lt span{color:var(--text-3);font-weight:400}
 .s8-h{font-size:28px;font-weight:600;letter-spacing:-.02em;text-align:center;color:var(--text-2);opacity:0;animation:fadeUp .4s 31.35s ease-out forwards}
 .s8-h em{font-style:normal;color:var(--mint)}
-.s8-big{font-size:56px;font-weight:800;letter-spacing:-.04em;text-align:center;line-height:1.1;margin-top:20px;opacity:0;animation:slamIn .5s 31.65s cubic-bezier(.16,1,.3,1) forwards}
+.s8-big{font-size:72px;font-weight:800;letter-spacing:-.04em;text-align:center;line-height:1.1;margin-top:20px;opacity:0;animation:slamIn .5s 31.65s cubic-bezier(.16,1,.3,1) forwards}
 .s8-big em{font-style:normal;color:var(--mint);position:relative;display:inline}
 .s8-big em::before{content:'';position:absolute;inset:-20px -30px;background:radial-gradient(ellipse,rgba(0,255,178,.2) 0%,transparent 70%);z-index:-1;border-radius:50%;opacity:0;animation:gp 2s 32.15s ease-out forwards}
 @keyframes gp{0%{opacity:0;transform:scale(.5)}50%{opacity:1}100%{opacity:.6;transform:scale(1.2)}}
@@ -261,7 +253,6 @@ z-index:5;
 <span class="s1-line s1-line-2">what you're working on.</span>
 </div>
 </div>
-<div class="flash f1"></div>
 
 <!-- S2: BROWSER -->
 <div class="s2">
@@ -282,15 +273,9 @@ z-index:5;
 <div class="scanl"></div>
 <div class="tbadge"><div class="tbadge-dot"></div>TOGGLEX CAPTURING</div>
 </div>
-<div class="cpops">
-<div class="cpop"><div class="pi pi-m"></div><span class="pl"><strong>session</strong> — invoice update</span><span class="pt pt-s">SESSION</span></div>
-<div class="cpop"><div class="pi pi-a"></div><span class="pl"><strong>deep work</strong> — 47min</span><span class="pt pt-d">DEEP WORK</span></div>
-<div class="cpop"><div class="pi pi-b"></div><span class="pl"><strong>intent</strong> — close Q4</span><span class="pt pt-i">INTENT</span></div>
-</div>
 </div>
 <div class="s2-tag"><em>Now it does.</em></div>
 </div>
-<div class="flash f2"></div>
 
 <!-- S3: FLOW -->
 <div class="s3">
@@ -300,21 +285,20 @@ z-index:5;
 <div class="bn-header-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="10" stroke="#4285f4" stroke-width="1.5"/><circle cx="12" cy="12" r="4" fill="#4285f4"/><path d="M12 2a10 10 0 0 1 8.66 5H12" stroke="#ea4335" stroke-width="1.5"/><path d="M3.34 7A10 10 0 0 0 12 22l-4.33-7.5" stroke="#34a853" stroke-width="1.5"/><path d="M20.66 7A10 10 0 0 1 12 22l4.33-7.5" stroke="#fbbc05" stroke-width="1.5"/></svg></div>
 <div class="bn-header-text">Your Chrome Browser</div>
 </div>
-<div class="bn"><div class="bi bi-gh">GH</div><div class="bif"><span class="bif-a">GitHub</span><span class="bif-d">reviewing PR #247</span></div></div>
-<div class="bn"><div class="bi bi-sh">S</div><div class="bif"><span class="bif-a">Google Sheets</span><span class="bif-d">Q4 client invoice</span></div></div>
-<div class="bn"><div class="bi bi-gm">G</div><div class="bif"><span class="bif-a">Gmail</span><span class="bif-d">client proposal thread</span></div></div>
-<div class="bn"><div class="bi bi-sl">S</div><div class="bif"><span class="bif-a">Slack</span><span class="bif-d">#team — standup thread</span></div></div>
+<div class="bn"><div class="bi bi-gh"><svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg></div><div class="bif"><span class="bif-a">GitHub</span><span class="bif-d">reviewing PR #247</span></div></div>
+<div class="bn"><div class="bi bi-sh"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M0 3a2 2 0 012-2h12a2 2 0 012 2v10a2 2 0 01-2 2H2a2 2 0 01-2-2V3zm2-1a1 1 0 00-1 1v1h14V3a1 1 0 00-1-1H2zm13 3H1v8a1 1 0 001 1h12a1 1 0 001-1V5zM5 8a.5.5 0 01.5-.5h5a.5.5 0 010 1h-5A.5.5 0 015 8z"/></svg></div><div class="bif"><span class="bif-a">Google Sheets</span><span class="bif-d">Q4 client invoice</span></div></div>
+<div class="bn"><div class="bi bi-gm"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M.05 3.555A2 2 0 012 2h12a2 2 0 011.95 1.555L8 8.414.05 3.555zM0 4.697v7.104l5.803-3.558L0 4.697zm.192 8.159l6.57-4.027L8 9.586l1.239-.757 6.57 4.027A2 2 0 0114 14H2a2 2 0 01-1.808-1.144zM16 4.697l-5.803 3.546L16 11.801V4.697z"/></svg></div><div class="bif"><span class="bif-a">Gmail</span><span class="bif-d">client proposal thread</span></div></div>
+<div class="bn"><div class="bi bi-sl"><svg width="14" height="14" viewBox="0 0 16 16" fill="currentColor"><path d="M3.36 9.6a1.68 1.68 0 11-1.68-1.68h1.68V9.6zm.84 0a1.68 1.68 0 113.36 0v4.2a1.68 1.68 0 11-3.36 0V9.6zM6.4 3.36a1.68 1.68 0 11-1.68-1.68V3.36H6.4zm0 .84a1.68 1.68 0 110 3.36H2.2a1.68 1.68 0 110-3.36h4.2zM12.64 6.4a1.68 1.68 0 111.68 1.68h-1.68V6.4zm-.84 0a1.68 1.68 0 11-3.36 0V2.2a1.68 1.68 0 113.36 0v4.2zM9.6 12.64a1.68 1.68 0 111.68 1.68V12.64H9.6zm0-.84a1.68 1.68 0 110-3.36h4.2a1.68 1.68 0 110 3.36H9.6z"/></svg></div><div class="bif"><span class="bif-a">Slack</span><span class="bif-d">#team — standup thread</span></div></div>
 <div class="bn"><div class="bi bi-no">N</div><div class="bif"><span class="bif-a">Notion</span><span class="bif-d">sprint planning</span></div></div>
 </div>
 <div class="bmc"><div class="bm bm-1"></div><div class="bm bm-2"></div><div class="bm bm-3"></div><div class="bm bm-4"></div><div class="bm bm-5"></div></div>
 <div class="cc">
-<div class="corb"><div class="cring"></div><span style="color:var(--mint);font-size:36px;font-weight:700;">+</span></div>
+<div class="corb"><div class="cring"></div><svg width="36" height="36" viewBox="0 0 24 24" fill="none"><path d="M7 12h4v-4h2v4h4v2h-4v4h-2v-4H7v-2z" fill="#00FFB2"/></svg></div>
 <div class="cl"><div class="cl-n">OpenClaw</div><div class="cl-s">&#9889; full context loaded</div></div>
 </div>
 </div>
 <div class="s3-tag">Every work session on the browser <em>now goes to OpenClaw.</em></div>
 </div>
-<div class="flash f3"></div>
 
 <!-- S4: WIN 1 -->
 <div class="s4">
@@ -325,7 +309,6 @@ z-index:5;
 </div>
 <div class="s4-punchline"><em>Context changes everything.</em></div>
 </div>
-<div class="flash f4"></div>
 
 <!-- S5: WIN 2 -->
 <div class="s5">
@@ -343,7 +326,6 @@ z-index:5;
 </div>
 </div>
 </div>
-<div class="flash f5"></div>
 
 <!-- S6: WIN 3 -->
 <div class="s6">
@@ -366,7 +348,6 @@ z-index:5;
 </div>
 </div>
 </div>
-<div class="flash f6"></div>
 
 <!-- S7: WIN 4 -->
 <div class="s7">
@@ -380,8 +361,8 @@ z-index:5;
 <div class="digest-body">
 <div class="digest-line" style="font-size:14px;color:var(--text)">Here's your day —</div>
 <div class="digest-line"><span class="dm-hl">3 deep work sessions</span> · 5.2 hours total</div>
-<div class="digest-line">Shipped <span class="dm-bold">auth fix</span> → merged to main</div>
-<div class="digest-line">Updated <span class="dm-bold">client invoice</span> → sent to finance</div>
+<div class="digest-line">Shipped <span class="dm-bold">auth fix</span> &#8594; merged to main</div>
+<div class="digest-line">Updated <span class="dm-bold">client invoice</span> &#8594; sent to finance</div>
 <div class="digest-line">Left open: <span class="dm-hl">pitch deck</span> — 40m in, not finished</div>
 <div class="digest-stats">
 <div class="digest-stat">Focus <strong>71%</strong></div>
@@ -391,7 +372,6 @@ z-index:5;
 </div>
 </div>
 </div>
-<div class="flash f7"></div>
 
 <!-- S8: CLOSE -->
 <div class="s8">
@@ -400,7 +380,7 @@ z-index:5;
 <div class="s8-lt">TOGGLEX <span>/ OPENCLAW</span></div>
 </div>
 <div class="s8-h">A totally new <em>OpenClaw</em> experience.</div>
-<div class="s8-big"><strong>Get <em>Toggle</em> now for the<br>missing context layer.</strong></div>
+<div class="s8-big"><strong>Your new <em>WorkOS.</em></strong></div>
 <div class="s8-url">x.toggle.pro</div>
 </div>
 
